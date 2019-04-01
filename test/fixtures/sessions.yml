@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start: 2019-03-31 22:01:22
+  end: 2019-03-31 22:01:22
+  profile: one
+  place: one
+
+two:
+  start: 2019-03-31 22:01:22
+  end: 2019-03-31 22:01:22
+  profile: two
+  place: two

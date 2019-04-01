@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190401013206) do
+ActiveRecord::Schema.define(version: 20190401020122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20190401013206) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["uuid"], name: "index_profiles_on_uuid"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.bigint "profile_id"
+    t.bigint "space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_sessions_on_profile_id"
+    t.index ["space_id"], name: "index_sessions_on_space_id"
   end
 
   create_table "spaces", force: :cascade do |t|
@@ -44,4 +55,6 @@ ActiveRecord::Schema.define(version: 20190401013206) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "sessions", "profiles"
+  add_foreign_key "sessions", "spaces"
 end
